@@ -9,7 +9,6 @@ games_controller = GamesController.new
 
     case option
     when 'new'
-        puts "***new***"
         games_controller.new
     end
 # end

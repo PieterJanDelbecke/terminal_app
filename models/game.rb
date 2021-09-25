@@ -6,7 +6,7 @@ class Game
 
     def initialize (name: '')
         @name = name
-        @level = 1
+        @level = 0
         @stage = 0
         @platoons = 3
         @score = 0

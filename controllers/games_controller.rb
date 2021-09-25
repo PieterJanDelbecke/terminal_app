@@ -6,9 +6,7 @@ class GamesController
 
     def new
         game = Game.new
-        p game
         Views:: Games.new game
-        p game
         Challenge.play game
     end
 end
