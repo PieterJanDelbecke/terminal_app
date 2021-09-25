@@ -7,5 +7,8 @@ class GamesController
     game = Game.new
     Views::Games.new game
     Challenge.play game
+    puts '------------------'
+    p game
+    puts '----- END --------'
   end
 end
