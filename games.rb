@@ -7,8 +7,8 @@ input = gets.chomp.downcase.strip
 option = input
 
 case option
-when 'new'
-  games_controller.new
-end
-# end
-# end until ['quit'].include? option
+    when 'new'
+    games_controller.new
+    when 'load'
+    games_controller.load
+end until ['quit'].include? option

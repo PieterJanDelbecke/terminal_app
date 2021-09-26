@@ -1,0 +1,6 @@
+--- !ruby/object:Game
+name: kmn
+level: 0
+stage: -1
+platoons: 2
+score: 0

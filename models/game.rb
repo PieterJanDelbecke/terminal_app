@@ -1,4 +1,6 @@
-class Game
+require_relative './active_record'
+
+class Game < ActiveRecord
   attr_accessor :name, :level, :stage, :platoons, :score
 
   def initialize(name: '')
