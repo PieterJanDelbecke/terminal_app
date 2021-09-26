@@ -10,12 +10,14 @@ class GamesController
         Challenge.play game
         puts "#{"--"*50}"
         Game.save game
-        p game
         puts "#{"--"*15} END #{"--"*15}"
     end
 
     def load
-    Game.load
+        game = Game.load("Tom")
+        puts "************ Loaded game *************"
+        p game
+        puts "**************************************"
     end
 
 end
