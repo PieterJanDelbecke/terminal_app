@@ -6,7 +6,7 @@ module Challenge
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
         'Berlin', 'Buncker']
         level_array = %w[beginner medium pro]
-        system('clear')
+        # system('clear')
         puts "Hello General: #{game.name}"
         puts "You are a #{level_array[game.level]}"
         puts "You have #{game.platoons} platoons under your command"
@@ -61,7 +61,7 @@ module Challenge
             puts "Congrats, you did well. You earned an extra platoon."
             puts "Platoons: #{game.platoons}"
             puts "Let's go to #{cities[game.stage]}!!"
-        else
+        else               # lost the battle
             game.platoons -=1
             puts "\nNoooo you lost the 3 fights, you lost the battle in: #{cities[game.stage]}!"
             puts "You lost a platoon."
