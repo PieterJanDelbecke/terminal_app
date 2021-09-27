@@ -1,21 +1,25 @@
 ---
 - !ruby/object:Game
-  name: Steff
+  name: Pieter
+  level: 0
+  stage: 4
+  platoons: 7
+  score: 0
+- !ruby/object:Game
+  name: PL
   level: 0
   stage: -1
   platoons: 2
   score: 0
 - !ruby/object:Game
-  name: Andre
-  level: 0
-  stage: -1
-  platoons: 2
-  score: 0
-- &1 !ruby/object:Game
-  name: Tom
+  name: PJ
   level: 0
   stage: 1
   platoons: 4
   score: 0
-- *1
-- *1
+- !ruby/object:Game
+  name: afk
+  level: 0
+  stage: 4
+  platoons: 6
+  score: 0

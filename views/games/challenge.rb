@@ -1,3 +1,5 @@
+require 'colorize'
+
 module Challenge
 
     def self.play(game)
@@ -10,14 +12,28 @@ module Challenge
         puts "You have #{game.platoons} platoons under your command"
         puts "You are currently in #{cities[game.stage]}"
         puts '********************************'
-        
+
+        cities.each_with_index do |item,index|
+                if game.stage == index
+                    print "#{item} => ".green
+                    print index
+                elsif game.stage > index
+                    print "#{item} => ".blue
+                    print index
+                else
+                    print "#{item} => ".red
+                    print index
+                end
+                puts
+        end
+
         turn = 0
         another_go = true
         challenge = false
-        puts "Choose a number between 1 and 4 and press enter to start"
+        puts "\nChoose a number between 1 and 4 and press enter to start"
         input = gets.chomp.to_i
         while another_go == true
-            puts "\npress enter to roll the dice"
+            puts "\npress enter to roll the dice".yellow
             roll_dice = gets.chomp
             if roll_dice == ""
                 turn += 1
@@ -45,13 +61,25 @@ module Challenge
             puts "Congrats, you did well. You earned an extra platoon."
             puts "Platoons: #{game.platoons}"
             puts "Let's go to #{cities[game.stage]}!!"
-        else                # lost the battle
-            game.stage -= 1
-            game.platoons -= 1
-            puts "\nNoooo you lost the 3 fights, you lost the battle in: #{cities[game.stage+1]}!"
+        else
+            game.platoons -=1
+            puts "\nNoooo you lost the 3 fights, you lost the battle in: #{cities[game.stage]}!"
             puts "You lost a platoon."
             puts "Platoons: #{game.platoons}"
-            puts "You need to go back to #{cities[game.stage]}!!"
+            if game.stage < 0
+                puts "You need to go back to #{cities[game.stage]}!!"
+                game.stage -=1
+            else
+                puts "You need to stay at Omaha Beach"
+            end
         end
+        if game.platoons > 0
+            puts "\nDo you want to continue playing? (Y/N)"
+            option = gets.chomp
+        else
+            puts "GAME OVER!!!"
+            option = 'N'
+        end
+        option
     end
 end

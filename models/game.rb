@@ -10,4 +10,6 @@ class Game < ActiveRecord
     @platoons = 3
     @score = 0
   end
+
+  
 end
