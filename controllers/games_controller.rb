@@ -18,6 +18,11 @@ class GamesController
         puts "************ Loaded game *************"
         p game
         puts "**************************************"
+        Challenge.play game
+        puts "#{"--"*50}"
+        Game.save game
+        puts "#{"--"*15} END #{"--"*15}"
     end
 
 end
+

@@ -14,14 +14,14 @@ module Challenge
         turn = 0
         another_go = true
         challenge = false
-        puts "Choose a number between 1 and 6 and press enter to start"
+        puts "Choose a number between 1 and 4 and press enter to start"
         input = gets.chomp.to_i
         while another_go == true
             puts "\npress enter to roll the dice"
             roll_dice = gets.chomp
             if roll_dice == ""
                 turn += 1
-                dice = 1 + rand(6)
+                dice = 1 + rand(4)
                 puts "you have trown a: #{dice}"
                 if dice == input
                     puts "same!! You won the battle!! :-)"
@@ -29,7 +29,7 @@ module Challenge
                 else
                     puts "Lost... :-("
                 end
-                if ((turn >=5) || (challenge == true))
+                if ((turn >=6) || (challenge == true))
                     another_go = false
                 else
                     puts "try again, roll the dice"
