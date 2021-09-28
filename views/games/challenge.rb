@@ -15,14 +15,11 @@ module Challenge
 
         cities.each_with_index do |item,index|
                 if game.stage == index
-                    print "#{item} => ".green
-                    print index
+                    print "  => #{item}".green
                 elsif game.stage > index
-                    print "#{item} => ".blue
-                    print index
+                    print "=> #{item}".blue
                 else
-                    print "#{item} => ".red
-                    print index
+                    print "=> #{item}".red
                 end
                 puts
         end
@@ -35,7 +32,7 @@ module Challenge
         while another_go == true
             puts "\npress enter to roll the dice".yellow
             roll_dice = gets.chomp
-            if roll_dice == ""
+            if roll_dice.empty? || !roll_dice.empty?
                 turn += 1
                 dice = 1 + rand(4)
                 puts "you have trown a: #{dice}"
@@ -45,7 +42,7 @@ module Challenge
                 else
                     puts "Lost... :-("
                 end
-                if ((turn >=6) || (challenge == true))
+                if ((turn >=10) || (challenge == true))
                     another_go = false
                 else
                     puts "try again, roll the dice"
@@ -63,7 +60,7 @@ module Challenge
             puts "Let's go to #{cities[game.stage]}!!"
         else               # lost the battle
             game.platoons -=1
-            puts "\nNoooo you lost the 3 fights, you lost the battle in: #{cities[game.stage]}!"
+            puts "\nNoooo you lost the fights, you lost the battle in: #{cities[game.stage]}!"
             puts "You lost a platoon."
             puts "Platoons: #{game.platoons}"
             if game.stage < 0
@@ -74,11 +71,20 @@ module Challenge
             end
         end
         if game.platoons > 0
+            input = false
+        begin
             puts "\nDo you want to continue playing? (Y/N)"
-            option = gets.chomp
+            option = gets.chomp.downcase
+            case option
+            when 'y','n'
+                input = true
+            else
+                puts "not a valid input, try again"
+            end
+            end until input
         else
             puts "GAME OVER!!!"
-            option = 'N'
+            option = 'n'
         end
         option
     end

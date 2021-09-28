@@ -10,9 +10,9 @@ class GamesController
         Views::Games.new game
         option = Challenge.play game
         case option
-        when 'Y'
+        when 'y'
            option = Challenge.play game
-        end until ['N'].include? option
+        end until ['n'].include? option
         
         puts "#{"--"*32}"
         Game.save game

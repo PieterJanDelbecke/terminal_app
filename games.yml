@@ -23,3 +23,9 @@
   stage: 4
   platoons: 6
   score: 0
+- !ruby/object:Game
+  name: af
+  level: 0
+  stage: 0
+  platoons: 2
+  score: 0
