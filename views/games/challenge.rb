@@ -6,7 +6,7 @@ module Challenge
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
         'Berlin', 'Buncker']
         level_array = %w[beginner medium pro]
-        # system('clear')
+        system('clear')
         puts "Hello General: #{game.name}"
         puts "You are a #{level_array[game.level]}"
         puts "You have #{game.platoons} platoons under your command"
