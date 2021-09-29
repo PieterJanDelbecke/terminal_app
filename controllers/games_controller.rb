@@ -1,5 +1,6 @@
 require './models/game'
 require './views/games/new'
+require './views/games/load'
 require './views/games/challenge'
 require './views/games/leaderboard.rb'
 
@@ -13,14 +14,12 @@ class GamesController
         when 'y'
            option = Challenge.play game
         end until ['n'].include? option
-        
-        puts "#{"--"*32}"
         Game.save game
-        puts "#{"--"*15} END #{"--"*15}"
     end
 
     def load
-        game = Game.load("Pieter")
+        name = Views::Games.load_player
+        game = Game.load(name)
         puts "************ Loaded game *************"
         p game
         puts "**************************************"

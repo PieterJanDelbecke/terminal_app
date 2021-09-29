@@ -12,7 +12,7 @@ module Challenge
         level_array = %w[Beginner Advanced Pro]
         system('clear')
         
-        puts "Hello General: " + "#{game.name}".yellow
+        puts "Hello General: " + "#{game.name.upcase}".yellow
         puts "Level: " + "#{level_array[game.level]}".yellow
         puts "Platoons under your command: " + "#{game.platoons}".yellow
         puts "You are currently in: " + "#{cities[game.stage]}".yellow

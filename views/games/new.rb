@@ -5,7 +5,7 @@ module Views
     def self.new(game)
       puts 'Welcome General!'
       print 'Please enter your name: '
-      game.name = gets.chomp.strip
+      game.name = gets.chomp.downcase.strip
 
       game.level = TTY::Prompt.new.select('Select your level: ') do |menu|
       menu.choice 'Beginner', 0

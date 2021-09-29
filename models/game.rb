@@ -1,7 +1,7 @@
 require_relative './active_record'
 
 class Game < ActiveRecord
-  attr_accessor :name, :level, :stage, :platoons, :score
+  attr_accessor :name, :level, :stage, :platoons, :score, :load
 
   def initialize(name: '')
     @name = name
@@ -9,6 +9,7 @@ class Game < ActiveRecord
     @stage = 0
     @platoons = 3
     @score = 0
+    @load = false
   end
 
   

@@ -1,25 +1,8 @@
 ---
 - !ruby/object:Game
-  name: Pieter
-  level: 0
-  stage: 5
-  platoons: 8
-  score: 0
-- !ruby/object:Game
-  name: PL
-  level: 0
-  stage: -1
-  platoons: 2
-  score: 0
-- !ruby/object:Game
-  name: PJ
+  name: pieter
   level: 0
   stage: 1
   platoons: 4
   score: 0
-- !ruby/object:Game
-  name: afk
-  level: 0
-  stage: 4
-  platoons: 6
-  score: 0
+  load: false
