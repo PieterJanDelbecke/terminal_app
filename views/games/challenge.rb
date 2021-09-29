@@ -1,18 +1,22 @@
 require 'colorize'
+require 'tty-font'
+
 
 module Challenge
+    
 
     def self.play(game)
+        font = TTY::Font.new(:doom)
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
         'Berlin', 'Buncker']
-        level_array = %w[beginner medium pro]
+        level_array = %w[Beginner Advanced Pro]
         system('clear')
-        puts "Hello General: #{game.name}"
-        puts "You are a #{level_array[game.level]}"
-        puts "You have #{game.platoons} platoons under your command"
-        puts "You are currently in #{cities[game.stage]}"
-        puts '********************************'
-
+        
+        puts "Hello General: " + "#{game.name}".yellow
+        puts "Level: " + "#{level_array[game.level]}".yellow
+        puts "Platoons under your command: " + "#{game.platoons}".yellow
+        puts "You are currently in: " + "#{cities[game.stage]}".yellow
+        puts '**'*30
         cities.each_with_index do |item,index|
                 if game.stage == index
                     print "  => #{item}".green
@@ -23,29 +27,31 @@ module Challenge
                 end
                 puts
         end
-
+        difficulty = 4 + game.level
         turn = 0
         another_go = true
         challenge = false
-        puts "\nChoose a number between 1 and 4 and press enter to start"
+        puts "\nChoose a number between 1 and #{difficulty} and press enter to start"
         input = gets.chomp.to_i
         while another_go == true
             puts "\npress enter to roll the dice".yellow
             roll_dice = gets.chomp
             if roll_dice.empty? || !roll_dice.empty?
                 turn += 1
-                dice = 1 + rand(4)
-                puts "you have trown a: #{dice}"
+                dice = 1 + rand(difficulty)
+                puts "you have chosen number: " + "#{input}".yellow
+                puts "you have trown a: " 
+                puts font.write("#{dice}")
                 if dice == input
-                    puts "same!! You won the battle!! :-)"
+                    puts "!!SAME!! You won the battle!! :-)"
                     challenge = true
                 else
-                    puts "Lost... :-("
+                    puts "Ohhh...Not the same :-("
                 end
                 if ((turn >=10) || (challenge == true))
                     another_go = false
                 else
-                    puts "try again, roll the dice"
+                    puts "\ntry again, roll the dice.."
                 end
             else
                 "You didn't press enter, try again.."
@@ -54,10 +60,11 @@ module Challenge
         if challenge        # won the battle
             game.stage += 1
             game.platoons += 1
-            puts "\nAwesome you won the battle in: #{cities[game.stage-1]}!"
+            puts "\nAWESOME!!! you won the battle in: " +  "#{cities[game.stage-1]}".yellow
             puts "Congrats, you did well. You earned an extra platoon."
-            puts "Platoons: #{game.platoons}"
-            puts "Let's go to #{cities[game.stage]}!!"
+            puts "Platoons: " + "#{game.platoons}".yellow
+            puts "let's go to:"
+            puts font.write("#{cities[game.stage]}")
         else               # lost the battle
             game.platoons -=1
             puts "\nNoooo you lost the fights, you lost the battle in: #{cities[game.stage]}!"

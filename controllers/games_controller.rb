@@ -20,13 +20,13 @@ class GamesController
     end
 
     def load
-        game = Game.load("Tom")
+        game = Game.load("Pieter")
         puts "************ Loaded game *************"
         p game
         puts "**************************************"
         Challenge.play game
         puts "#{"--"*50}"
-        Game.save game
+        Game.save_loaded game
         puts "#{"--"*15} END #{"--"*15}"
     end
 
