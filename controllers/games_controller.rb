@@ -20,13 +20,12 @@ class GamesController
     def load
         name = Views::Games.load_player
         game = Game.load(name)
-        puts "************ Loaded game *************"
-        p game
-        puts "**************************************"
-        Challenge.play game
-        puts "#{"--"*50}"
-        Game.save_loaded game
-        puts "#{"--"*15} END #{"--"*15}"
+        option = Challenge.play game
+        case option
+        when 'y'
+           option = Challenge.play game
+        end until ['n'].include? option
+        Game.save game
     end
 
     def score
