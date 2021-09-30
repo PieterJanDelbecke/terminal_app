@@ -7,6 +7,11 @@ end
 class InvalidLoadName < StandardError
 end
 
+class InvalidOption < StandardError
+end
+
+
+
 def validate_name(name)
     if name.empty?
         raise InvalidName, "Empty entries not accepted, try again"
@@ -27,4 +32,11 @@ def validate_load_name(name,list_of_names)
         raise InvalidLoadName, "Not in list, try again"
     end
     name
+end
+
+def validate_option(option)
+    if  !(option == 'y' || option == 'n')
+        raise InvalidOption, "Incorrect entry, try again"
+    end
+    option
 end

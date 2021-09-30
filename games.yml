@@ -1,8 +1,25 @@
 ---
 - !ruby/object:Game
-  name: pieter
+  name: pj
   level: 0
-  stage: 3
-  platoons: 6
-  score: 148
-  load: false
+  stage: 10
+  platoons: 5
+  score: 133
+  over: true
+  finished: true
+- !ruby/object:Game
+  name: boris
+  level: 0
+  stage: 10
+  platoons: 5
+  score: 127
+  over: false
+  finished: true
+- !ruby/object:Game
+  name: qwerty
+  level: 0
+  stage: 1
+  platoons: 3
+  score: 107
+  over: false
+  finished: false

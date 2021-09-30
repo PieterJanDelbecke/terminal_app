@@ -3,6 +3,8 @@ require 'tty-font'
 require 'tty-spinner'
 require './views/errors/data_entry'
 require_relative './dice_game'
+require './views/games/layout'
+
 
 
 module Challenge
@@ -13,8 +15,8 @@ module Challenge
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
         'Berlin', 'Hitlers Bunker']
         level_array = %w[Beginner Advanced Pro]
-        system('clear')
-
+        
+        header
         puts "General: " + "#{game.name.upcase}".yellow
         puts "Level: " + "#{level_array[game.level]}".yellow
         puts "\nScore: " + "#{game.score}".yellow
@@ -42,15 +44,24 @@ module Challenge
             game.stage += 1
             game.platoons += 1
             game.score += 20
-            puts "\nAWESOME!   You won the battle in: " +  "#{cities[game.stage-1]}".yellow
+            if game.stage == 10
+                puts "\n!!! WAAAAW !!!! You eliminated Hitler"
+                puts pastel.red(font.write("You won the war!!!!"))
+                puts "Congralualations general " + "#{game.name.capitalize}". yellow
+                game.finished = true
+            else
+            puts "\n!!! AWESOME !!!  You won the battle in: " +  "#{cities[game.stage-1]}".yellow
             puts "\nYou earned an extra platoon and accumuleted an extra 20 points"
             puts "Platoons: " + "#{game.platoons}".yellow
             puts "\nlet's go to:"
             puts pastel.green(font.write("#{cities[game.stage]}"))
+            end
+
+
         else               # lost the battle
             game.platoons -=1
             game.score -= 5
-            puts "\nNoooo you lost the fights, you lost the battle in: #{cities[game.stage]}!"
+            puts "\n!!! NOOOO.. !!!  You lost the fights, you lost the battle in: " + "#{cities[game.stage]}".yellow
             puts "You lost a platoon."
             puts "Platoons: #{game.platoons}"
             if game.stage < 0
@@ -60,20 +71,14 @@ module Challenge
                 puts "You need to stay at Omaha Beach"
             end
         end
-        if game.platoons > 0
-            input = false
-        begin
-            puts "\nDo you want to continue playing? (Y/N)"
-            option = gets.chomp.downcase
-            case option
-            when 'y','n'
-                input = true
-            else
-                puts "not a valid input, try again"
-            end
-            end until input
-        else
+
+        if game.finished
+            option = 'n'
+        elsif game.platoons > 0
+            option = keep_playing
+        else 
             puts "GAME OVER!!!"
+            game.over = true
             option = 'n'
         end
         option

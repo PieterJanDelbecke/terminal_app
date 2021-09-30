@@ -21,13 +21,12 @@ def dice_number(difficulty)
     retry
 end
 
-# def load_player(list_of_names)
-#     puts "Welcome back general, we were waiting for you!"
-#     puts "What is your name? "
-#     name = gets.chomp.downcase.strip
-#     validate_load_name(name,list_of_names)
-# rescue InvalidLoadName => e
-#   puts "Invalid name: error details: #{e.message}".red
-#   retry
-# end
+def keep_playing
+    puts "\nDo you want to continue playing? (Y/N)"
+    option = gets.chomp.downcase
+    validate_option(option)
+rescue InvalidOption =>e
+    puts "Invalid option!!!\n => Details #{e.message}".red
+    retry
+end
 

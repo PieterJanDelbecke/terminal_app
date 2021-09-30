@@ -1,3 +1,4 @@
+require './views/games/layout'
 require './views/errors/error_handling'
 require 'colorize'
 

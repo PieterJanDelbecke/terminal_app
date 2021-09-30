@@ -1,13 +1,15 @@
 require 'tty-table'
 require 'colorize'
+require_relative 'layout.rb'
 
 module Views
     module Games
         def self.index(games)
+            header
             return puts "No games" if games.empty?
 
             leader = leader games
-            puts "\nThe current leader is #{leader[1]}, with a score of #{leader[0]}"
+            puts "\nThe current leader is " + "#{leader[1].capitalize}".yellow + ", with a score of " + "#{leader[0]}".yellow
             puts
 
             headers = %w[player level stage platoons score]
