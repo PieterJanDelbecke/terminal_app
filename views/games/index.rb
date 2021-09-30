@@ -1,4 +1,5 @@
 require 'tty-table'
+require 'colorize'
 
 module Views
     module Games
@@ -31,6 +32,20 @@ module Views
             end
             leader
         end
+
+
+        def self.table_list_names(games)
+            puts "\nWelcome back general, we were waiting for you!"
+            puts "\nSee below the list of all the excisting players: "
+            puts
+            list_of_names = []
+            games.each do |game|
+                puts game.name.capitalize.yellow
+                list_of_names << game.name
+            end
+            list_of_names
+        end
+
 
     end
 end

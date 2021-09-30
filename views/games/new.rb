@@ -1,12 +1,10 @@
 require 'tty-prompt'
+require './views/errors/data_entry'
 
 module Views
   module Games
     def self.new(game)
-      puts "\nWelcome General!"
-      print 'Please enter your name: '
-      game.name = gets.chomp.downcase.strip
-
+      game.name = new_player_name
       game.level = TTY::Prompt.new.select('Select your level: ') do |menu|
       menu.choice 'Beginner', 0
       menu.choice 'Advanced', 1

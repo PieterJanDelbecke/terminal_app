@@ -32,6 +32,7 @@ option = TTY::Prompt.new.select("What do you want to do?: ") do |menu|
     menu.choice 'Load Game', 'load'
     menu.choice 'Scoreboard', 'list'
     menu.choice 'Help', 'help'
+    menu.choice 'Quit', 'quit'
     end    
 
 case option
@@ -43,5 +44,5 @@ when 'list'
 games_controller.score
 when 'help'
 games_controller.help
-end    
+end
 # end until ['quit'].include? option

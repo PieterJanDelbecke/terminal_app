@@ -1,7 +1,7 @@
 require 'colorize'
 require 'tty-font'
 require 'tty-spinner'
-require './views/errors/dice'
+require './views/errors/data_entry'
 require_relative './dice_game'
 
 
@@ -43,7 +43,7 @@ module Challenge
             game.platoons += 1
             game.score += 20
             puts "\nAWESOME!   You won the battle in: " +  "#{cities[game.stage-1]}".yellow
-            puts "\nYou earned an extra platoon."
+            puts "\nYou earned an extra platoon and accumuleted an extra 20 points"
             puts "Platoons: " + "#{game.platoons}".yellow
             puts "\nlet's go to:"
             puts pastel.green(font.write("#{cities[game.stage]}"))

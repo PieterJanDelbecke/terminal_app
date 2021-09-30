@@ -2,63 +2,7 @@
 - !ruby/object:Game
   name: pieter
   level: 0
-  stage: 4
+  stage: 3
   platoons: 6
-  score: 8
-  load: false
-- !ruby/object:Game
-  name: gerald
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 13
-  load: false
-- !ruby/object:Game
-  name: patrick
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 5
-  load: false
-- !ruby/object:Game
-  name: randy
-  level: 0
-  stage: 2
-  platoons: 5
-  score: 0
-  load: false
-- !ruby/object:Game
-  name: kleo
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 0
-  load: false
-- !ruby/object:Game
-  name: lol
-  level: 0
-  stage: 2
-  platoons: 4
-  score: 0
-  load: false
-- !ruby/object:Game
-  name: yty
-  level: 0
-  stage: 2
-  platoons: 5
-  score: 0
-  load: false
-- !ruby/object:Game
-  name: aqa
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 0
-  load: false
-- !ruby/object:Game
-  name: pjd
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 118
+  score: 148
   load: false

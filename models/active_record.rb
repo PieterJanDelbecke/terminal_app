@@ -28,14 +28,17 @@ class ActiveRecord
 
     def self.load(name)
         record = self.db.detect {|r| r.name == name}
-        # record
+        
     end
 
-    def self.check_name(name)
-        record = self.db.detect {|r| r.name == name}
-        raise RecordNotFound.new(name) unless record
-        record
 
-    end
+
+
+    # def self.check_name(name)
+    #     record = self.db.detect {|r| r.name == name}
+    #     raise RecordNotFound.new(name) unless record
+    #     record
+
+    # end
 
 end
