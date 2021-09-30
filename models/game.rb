@@ -8,7 +8,7 @@ class Game < ActiveRecord
     @level = 0
     @stage = 0
     @platoons = 3
-    @score = 0
+    @score = 100
     @load = false
   end
 

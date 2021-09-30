@@ -3,7 +3,7 @@ require 'tty-prompt'
 module Views
   module Games
     def self.new(game)
-      puts 'Welcome General!'
+      puts "\nWelcome General!"
       print 'Please enter your name: '
       game.name = gets.chomp.downcase.strip
 

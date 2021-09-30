@@ -15,3 +15,9 @@ gem "tty-table", "~> 0.12.0"
 gem "artii", "~> 2.1"
 
 gem "tty-font", "~> 0.5.0"
+
+gem "rainbow", "~> 3.0"
+
+gem "tty-progressbar", "~> 0.18.2"
+
+gem "tty-spinner", "~> 0.9.3"
