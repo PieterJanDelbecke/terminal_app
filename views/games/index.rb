@@ -36,7 +36,6 @@ module Views
         end
 
         def self.leaders(games)
-            # leader = [0,"",0]
             leader = {score: 0, name: '', platoons: 0}
             games.each do |game|
                 if (game.score > leader[:score])
@@ -50,6 +49,7 @@ module Views
 
 
         def self.table_list_names(games)
+            header
             puts "\nWelcome back general, we were waiting for you!"
             puts "\nSee below the list of all the excisting players: "
             puts

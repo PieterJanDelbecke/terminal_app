@@ -1,8 +1,9 @@
 require './models/game'
 require './views/games/new'
 require './views/games/load'
+require './views/games/help'
 require './views/games/challenge'
-require './views/games/index.rb'
+require './views/games/index'
 require 'colorize'
 
 class GamesController
@@ -40,6 +41,10 @@ class GamesController
     def score
         games = Game.all
         Views::Games.index(games)
+    end
+
+    def help
+        Views::Games.help
     end
 end
 
