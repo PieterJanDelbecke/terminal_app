@@ -23,3 +23,11 @@
   score: 107
   over: false
   finished: false
+- !ruby/object:Game
+  name: lol
+  level: 2
+  stage: 1
+  platoons: 3
+  score: 100
+  over: false
+  finished: false

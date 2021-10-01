@@ -4,7 +4,7 @@ require_relative 'layout.rb'
 
 module Views
     module Games
-        def self.index(games)
+        def self.index(games)                   # displays who is currently is the leader in the game  - scoreboard
             header
             return puts "No games" if games.empty?
 
@@ -18,7 +18,19 @@ module Views
             puts table.render(:ascii)
         end
 
-        def self.table_rows_for(games)
+        def self.leaders(games)                 #populates the hash used for displaying the leader - scoreboard
+            leader = {score: 0, name: '', platoons: 0}
+            games.each do |game|
+                if (game.score > leader[:score])
+                    leader[:score] = game.score
+                    leader[:name] = game.name
+                    leader[:platoons] = game.platoons
+                end
+            end
+            leader
+        end
+
+        def self.table_rows_for(games)          # displays the table with all the players and their results - scoreboard
             cities = ['','Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels' ,'Cologne', 'Hannover', 'Berlin', 'Hitlers Bunker','']
             level = %w[beginner advanced pro]
             games.map do |game|
@@ -35,23 +47,11 @@ module Views
             end
         end
 
-        def self.leaders(games)
-            leader = {score: 0, name: '', platoons: 0}
-            games.each do |game|
-                if (game.score > leader[:score])
-                    leader[:score] = game.score
-                    leader[:name] = game.name
-                    leader[:platoons] = game.platoons
-                end
-            end
-            leader
-        end
 
-
-        def self.table_list_names(games)
+        def self.table_list_names(games)  # displays the list of existing players when load feature is selected - load game
             header
             puts "\nWelcome back general, we were waiting for you!"
-            puts "\nSee below the list of all the excisting players: "
+            puts "\nSee below the list of all the excisting generals: "
             puts
             list_of_names = []
             games.each do |game|

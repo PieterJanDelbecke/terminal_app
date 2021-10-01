@@ -7,8 +7,8 @@ require './views/games/layout'
 
 
 
-module Challenge
-    def self.play(game)
+module Challenge                        
+    def self.play(game)                             # play the game
         font = TTY::Font.new(:doom)
         pastel = Pastel.new
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
@@ -23,7 +23,7 @@ module Challenge
         puts "You are currently in: " + "#{cities[game.stage]}".green
         puts "\n#{'**'*30}"
         
-        cities.each_with_index do |item,index|      # printing out the current stage
+        cities.each_with_index do |item,index|      # printing out the current stage in the game
                 if game.stage == index
                     print "  => #{item}".green
                 elsif game.stage > index
@@ -36,8 +36,8 @@ module Challenge
         puts "\n#{'**'*30}"
 
         difficulty = 4 + game.level
-        input = dice_number(difficulty)             #reads the chosen number for the dice game
-        result = battle(game,difficulty,input)      #play dice game
+        input = dice_number(difficulty)             #reads in the chosen number for the dice game
+        result = battle(game,difficulty,input)      #play the dice game
 
         if result                                   # won the battle (dice game)
             game.stage += 1
@@ -71,7 +71,7 @@ module Challenge
             end
         end
 
-        if game.finished
+        if game.finished                    # continue Y/N ?
             continue = 'n'
         elsif game.platoons > 0
             continue = continue_playing

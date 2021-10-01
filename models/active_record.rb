@@ -3,7 +3,7 @@ require 'yaml'
 class ActiveRecord 
     class RecordNotFound <StandardError; end
     
-    attr_reader :name
+    # attr_reader :name
 
     def self.db
         @db ||= (YAML.load(File.read('games.yml')) rescue [])
@@ -28,17 +28,7 @@ class ActiveRecord
 
     def self.load(name)
         record = self.db.detect {|r| r.name == name}
-        
+
     end
-
-
-
-
-    # def self.check_name(name)
-    #     record = self.db.detect {|r| r.name == name}
-    #     raise RecordNotFound.new(name) unless record
-    #     record
-
-    # end
 
 end

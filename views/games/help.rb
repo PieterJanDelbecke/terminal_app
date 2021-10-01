@@ -3,7 +3,7 @@ require 'tty-prompt'
 
 module Views
     module Games
-        def self.help
+        def self.help                           # help page
         header
         puts "#{"*"*15}  SETTING  #{"*"*15}".yellow.italic
         puts "\nThe D-DAY game is situated in May 1944, when Europe was occupied by Nazi Germany "

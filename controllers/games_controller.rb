@@ -8,7 +8,7 @@ require 'colorize'
 
 class GamesController
   
-    def new
+    def new                                 # when new game is selected 
         game = Game.new
         Views::Games.new game
         option = Challenge.play game
@@ -19,7 +19,7 @@ class GamesController
         Game.save game
     end
 
-    def load
+    def load                               # when load game is selected
         games = Game.all
         list_of_names = Views::Games.table_list_names(games)
         name = Views::Games.load_player(list_of_names)
@@ -38,12 +38,12 @@ class GamesController
         end
     end
 
-    def score
+    def score                               # when scoreboard is selected
         games = Game.all
         Views::Games.index(games)
     end
 
-    def help
+    def help                                #when help page is selected
         Views::Games.help
     end
 end
