@@ -21,7 +21,7 @@ def dice_number(difficulty)
     retry
 end
 
-def keep_playing
+def continue_playing
     puts "\nDo you want to continue playing? (Y/N)"
     option = gets.chomp.downcase
     validate_option(option)

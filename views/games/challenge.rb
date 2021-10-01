@@ -11,7 +11,6 @@ module Challenge
     def self.play(game)
         font = TTY::Font.new(:doom)
         pastel = Pastel.new
-        # bar = TTY::ProgressBar.new("dice is rolling... [:bar]",total: 20)
         cities = ['Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels', 'Cologne', 'Hannover',
         'Berlin', 'Hitlers Bunker']
         level_array = %w[Beginner Advanced Pro]
@@ -24,7 +23,7 @@ module Challenge
         puts "You are currently in: " + "#{cities[game.stage]}".green
         puts "\n#{'**'*30}"
         
-        cities.each_with_index do |item,index|
+        cities.each_with_index do |item,index|      # printing out the current stage
                 if game.stage == index
                     print "  => #{item}".green
                 elsif game.stage > index
@@ -37,16 +36,16 @@ module Challenge
         puts "\n#{'**'*30}"
 
         difficulty = 4 + game.level
-        input = dice_number(difficulty)
-        result = battle(game,difficulty,input)
+        input = dice_number(difficulty)             #reads the chosen number for the dice game
+        result = battle(game,difficulty,input)      #play dice game
 
-        if result        # won the battle
+        if result                                   # won the battle (dice game)
             game.stage += 1
             game.platoons += 1
             game.score += 20
             if game.stage == 10
-                puts "\n!!! WAAAAW !!!! You eliminated Hitler"
-                puts pastel.red(font.write("You won the war!!!!"))
+                puts "\n!!! WAAAAW !!!! You eliminated Hitler, Europe is liberated!!!"
+                puts pastel.red(font.write("You have WON the war!!!!"))
                 puts "Congralualations general " + "#{game.name.capitalize}". yellow
                 game.finished = true
             else
@@ -58,7 +57,7 @@ module Challenge
             end
 
 
-        else               # lost the battle
+        else                                        # lost the battle (dice game)
             game.platoons -=1
             game.score -= 5
             puts "\n!!! NOOOO.. !!!  You lost the fights, you lost the battle in: " + "#{cities[game.stage]}".yellow
@@ -73,14 +72,15 @@ module Challenge
         end
 
         if game.finished
-            option = 'n'
+            continue = 'n'
         elsif game.platoons > 0
-            option = keep_playing
+            continue = continue_playing
         else 
             puts "GAME OVER!!!"
+            game.stage = -1
             game.over = true
-            option = 'n'
+            continue = 'n'
         end
-        option
+        continue 
     end
 end

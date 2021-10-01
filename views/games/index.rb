@@ -8,28 +8,41 @@ module Views
             header
             return puts "No games" if games.empty?
 
-            leader = leader games
-            puts "\nThe current leader is " + "#{leader[1].capitalize}".yellow + ", with a score of " + "#{leader[0]}".yellow
+            leader = leaders games
+            puts "\nThe current leader is " + "#{leader[:name].upcase}".yellow + ", with "+ "#{leader[:platoons]}".yellow + " platoons and a score of " + "#{leader[:score]}".yellow
             puts
 
-            headers = %w[player level stage platoons score]
+            headers = %w[Player Level Status Stage Platoons Score]
             rows = table_rows_for games
             table = TTY::Table.new headers, rows
             puts table.render(:ascii)
         end
 
         def self.table_rows_for(games)
-                games.map do |game|
-                    [game.name, game.level, game.stage, game.platoons, game.score]
+            cities = ['','Omaha Beach', 'Lille', 'Paris', 'Bastogne', 'Antwerp', 'Brussels' ,'Cologne', 'Hannover', 'Berlin', 'Hitlers Bunker','']
+            level = %w[beginner advanced pro]
+            games.map do |game|
+                game_city = cities[game.stage + 1]
+                game_level = level[game.level]
+                if game.finished
+                    game_status = 'WAR WON'.red
+                elsif game.over
+                    game_status = 'GAME OVER'.red
+                else
+                    game_status = ''
                 end
+                [game.name, game_level,game_status, game_city, game.platoons, game.score]
+            end
         end
 
-        def self.leader(games)
-            leader = [0,""]
+        def self.leaders(games)
+            # leader = [0,"",0]
+            leader = {score: 0, name: '', platoons: 0}
             games.each do |game|
-                if game.score > leader[0]
-                    leader[0] = game.score
-                    leader[1] = game.name
+                if (game.score > leader[:score])
+                    leader[:score] = game.score
+                    leader[:name] = game.name
+                    leader[:platoons] = game.platoons
                 end
             end
             leader
