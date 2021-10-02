@@ -31,3 +31,43 @@
   score: 100
   over: false
   finished: false
+- !ruby/object:Game
+  name: qqq
+  level: 0
+  stage: 1
+  platoons: 4
+  score: 118
+  over: false
+  finished: false
+- !ruby/object:Game
+  name: pkk
+  level: 0
+  stage: 0
+  platoons: 2
+  score: 87
+  over: false
+  finished: false
+- !ruby/object:Game
+  name: jack
+  level: 0
+  stage: 0
+  platoons: 3
+  score: 100
+  over: false
+  finished: false
+- !ruby/object:Game
+  name: jack
+  level: 0
+  stage: 0
+  platoons: 3
+  score: 100
+  over: false
+  finished: false
+- !ruby/object:Game
+  name: jack
+  level: 0
+  stage: 0
+  platoons: 3
+  score: 100
+  over: false
+  finished: false

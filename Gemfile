@@ -21,3 +21,5 @@ gem "rainbow", "~> 3.0"
 gem "tty-progressbar", "~> 0.18.2"
 
 gem "tty-spinner", "~> 0.9.3"
+
+gem "minitest", "~> 5.14"

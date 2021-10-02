@@ -7,8 +7,9 @@ require './views/games/index'
 require 'colorize'
 
 class GamesController
+   
   
-    def new                                 # when new game is selected 
+    def new                                # when new game is selected 
         game = Game.new
         Views::Games.new game
         option = Challenge.play game

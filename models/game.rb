@@ -1,7 +1,9 @@
 require_relative './active_record'
 
 class Game < ActiveRecord
-  attr_accessor :name, :level, :stage, :platoons, :score, :load, :over, :finished
+  attr_accessor :name, :level, :stage, :platoons, :score, :load, :over, :finished, :file_name
+
+ FILE_NAME = "d-day.yml"
 
   def initialize(name: '')                  # creates an instance of the game class when initialised
     @name = name
@@ -12,5 +14,10 @@ class Game < ActiveRecord
     @over = false
     @finished = false
   end
+
+  def file_name
+      name = FILE_NAME
+  end
   
 end
+
