@@ -15,10 +15,6 @@ class ActiveRecord
         self.db
     end
 
-    # def self.file_name
-    #     "#{self.name.downcase}.yml"
-    # end
-
     def self.save record
         self.db << record
         File.open(file_name,'w') do |file|
@@ -26,15 +22,14 @@ class ActiveRecord
         end
     end
 
-    def self.save_loaded(record)
+    def self.save_loaded record
         File.open(file_name,'w') do |file|
         file.write(self.db.to_yaml)
         end
     end
 
-    def self.load(name)
+    def self.load name
         record = self.db.detect {|r| r.name == name}
-
     end
 
 end

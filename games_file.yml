@@ -1,9 +1,0 @@
----
-- !ruby/object:Game
-  name: coco
-  level: 0
-  stage: 1
-  platoons: 4
-  score: 114
-  over: false
-  finished: false

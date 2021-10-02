@@ -15,7 +15,7 @@ class Game < ActiveRecord
     @finished = false
   end
 
-  def self.file_name
+  def self.file_name                
       FILE_NAME
   end
   
