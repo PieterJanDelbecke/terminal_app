@@ -7,7 +7,7 @@ require './views/games/index'
 require 'colorize'
 
 class GamesController
-   
+    
   
     def new                                # when new game is selected 
         game = Game.new
@@ -20,11 +20,11 @@ class GamesController
         Game.save game
     end
 
-    def load                               # when load game is selected
-        games = Game.all
-        list_of_names = Views::Games.table_list_names(games)
-        name = Views::Games.load_player(list_of_names)
-        game = Game.load(name)
+    def load                                                   # when load game is selected
+        games = Game.all 
+        list_of_names = Views::Games.table_list_names games 
+        name = Views::Games.load_player list_of_names
+        game = Game.load name
         if game.over 
             puts "\nThis game is over, you lost the war".red
         elsif game.finished
@@ -41,7 +41,7 @@ class GamesController
 
     def score                               # when scoreboard is selected
         games = Game.all
-        Views::Games.index(games)
+        Views::Games.index games
     end
 
     def help                                #when help page is selected
