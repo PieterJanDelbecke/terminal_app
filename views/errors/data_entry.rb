@@ -1,7 +1,7 @@
 require_relative './error_handling'
 require 'colorize'
     
-def new_player_name
+def new_player_name                                                 # checks if entered name of new player is valid
     puts "\nWelcome General!"
     print 'Please enter your name: '
     name = gets.chomp.downcase.strip
@@ -13,7 +13,7 @@ end
 
 
 def dice_number(difficulty)
-    puts "\nChoose a number between "+"1 ".yellow + "and " + "#{difficulty}".yellow + " and press enter"
+    puts "\nChoose a number between "+"1 ".yellow + "and " + "#{difficulty}".yellow + " and press enter"    # checks if the number chosen for the dice game is valid
     input = gets.chomp.to_i
     validate_num(input,difficulty)
   rescue InvalidInput => e
@@ -21,7 +21,7 @@ def dice_number(difficulty)
     retry
 end
 
-def continue_playing
+def continue_playing                                            # checks if the entered value to continue is correct
     puts "\nDo you want to continue playing? (Y/N)"
     option = gets.chomp.downcase
     validate_option(option)

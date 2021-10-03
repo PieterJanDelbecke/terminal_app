@@ -17,13 +17,13 @@ module Views
         puts "\n\n#{"*"*15}  GAME PLAY  #{"*"*15}".yellow.italic
         puts "\nD-DAY is a dice game where you have to battle with the Germans to conquer back each city"
         puts "The battles are played out with a dice game"
-        puts "First you need to pick a number in a given range and afer that you have to throw the dice"
+        puts "First you need to pick a number in a given range and afer that you have to roll the dice"
         puts "Ranges: "
         puts "     Beginner    : 1 - 4"
         puts "     Advanced    : 1 - 5"
         puts "     Pro         : 1 - 6"
-        puts "When you throw the same number as the number you have picked, you win the battle"
-        puts "You get 8 turns to throw your picked number, if you fail to get the same number you lose the battle"
+        puts "When you roll the same number as the number you have picked, you win the battle"
+        puts "You get 8 turns to roll your picked number, if you fail to get the same number you lose the battle"
         puts "You win the game when you make it to Hitlers bunker and win the dice game"
         puts "It's game over when you lost all your platoons"
         
